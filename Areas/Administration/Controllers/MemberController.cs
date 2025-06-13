@@ -17,18 +17,29 @@ public class MemberController : Controller
     }
 
     // GET: MemberController
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
         return View();
     }
 
     // GET: MemberController/Details/5
-    public ActionResult Details(int id)
+    public async Task<ActionResult> Details(int id)
     {
         return View();
     }
 
     // GET: MemberController/Create
+    [HttpGet]
+    public async Task<ActionResult> Create()
+    {
+        var m = new Create();
+        return View(m);
+    }
+
+
+    // POST: MemberController/Create
+    [HttpPost]
+    //[ValidateAntiForgeryToken]
     public async Task<ActionResult> Create(Create m)
     {
         if (ModelState.IsValid)
@@ -36,8 +47,8 @@ public class MemberController : Controller
             try
             {
                 //TODO:b 297. Run and verfiy the create action (check the database for a new user)
-                await _membershipService.MemberRegistrationAsync(m.FirstName, m.LastName, m.Email,m.Phone, m.RegistrationDate );
-                return RedirectToAction("Index");
+                await _membershipService.MemberRegistrationAsync(m.FirstName, m.LastName, m.Email, m.Phone, m.RegistrationDate);
+                return View("Index");
             }
             catch (Exception ex)
             {
@@ -45,22 +56,7 @@ public class MemberController : Controller
             }
         }
         return View(m);
-    }
 
-
-    // POST: MemberController/Create
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public ActionResult Create(IFormCollection collection)
-    {
-        try
-        {
-            return RedirectToAction(nameof(Index));
-        }
-        catch
-        {
-            return View();
-        }
     }
 
     // GET: MemberController/Edit/5

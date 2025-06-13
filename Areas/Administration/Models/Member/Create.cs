@@ -7,19 +7,19 @@ public class Create
 {
     [Required]
     [StringLength(50)]
-    public string FirstName { get; set; } = string.Empty;
+    public string FirstName { get; set; }
 
     [Required]
     [StringLength(50)]
-    public string LastName { get; set; } = string.Empty;
+    public string LastName { get; set; }
 
     [Required]
     [EmailAddress]
     [StringLength(150)]
-    public string Email { get; set; } = string.Empty;
+    public string Email { get; set; }
 
     [StringLength(20)]
-    public string Phone { get; set; } = string.Empty;
+    public string Phone { get; set; }
 
     public DateTime RegistrationDate { get; set; }
 }

@@ -18,7 +18,7 @@ public class MembershipService
     public async Task<Member> MemberRegistrationAsync(string firstname, string lastname, string email, string phone, DateTime registrationDate)
     {
         //TODO:b 216. Implement RegisterMemberAsync
-        var member = new Member( firstname, lastname, email, phone);
+        var member = new Member { FirstName = firstname, LastName = lastname, Email = email, RegistrationDate = registrationDate };
         member.Register(registrationDate);
         _context.Members.Add(member);
         await _context.SaveChangesAsync();

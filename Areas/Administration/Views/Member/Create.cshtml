@@ -4,11 +4,118 @@
 @model SeniorLearnSystem.Areas.Administration.Models.Member.Create;
 
 @{
-    //TODO:b 297. Add Administration Member Create.cshtml
     ViewData["Title"] = "Member Registration:";
-    //TODO:b 314. Q.Ts sprinkled (Admin Member Create)
 }
-<form action="Create" method="post">
+
+
+
+<h1>Member Registration</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+                <form asp-action="Create" method="post">
+            @*Html.AntiForgeryToken()*@
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+
+                @* asp-for denotes a 'class-helper' which is C# syntax that integrates with
+                HTML tag structure.  It allows access to the Model's props and methods.
+
+                Note that the <label> tag here is actually empty - the asp-for="Name"
+                will automatically produce the label text based on conventional
+                defaults for the property provided.
+                *@
+
+                <label asp-for="FirstName" class="control-label" name="FirstName"></label>
+                <input asp-for="FirstName" class="form-control" name="FirstName" />
+
+
+                <span asp-validation-for="FirstName" class="text-danger" name="FirstName"></span>
+            </div>
+
+
+            <div class="form-group">
+
+
+                <label asp-for="LastName" class="control-label" name="LastName"></label>
+                <input asp-for="LastName" class="form-control" name="LastName" />
+
+
+                <span asp-validation-for="LastName" class="text-danger" name="LastName"></span>
+            </div>
+
+            <div class="form-group">
+
+
+                <label asp-for="Email" class="control-label" name="Email"></label>
+                <input asp-for="Email" class="form-control" name="Email" />
+
+
+                <span asp-validation-for="Email" class="text-danger" name="Email"></span>
+            </div>
+
+            <div class="form-group">
+
+
+                <label asp-for="Phone" class="control-label" name="Phone"></label>
+                <input asp-for="Phone" class="form-control" name="Phone" />
+
+
+                <span asp-validation-for="Phone" class="text-danger" name="Phone"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RegistrationDate" class="control-label" name="RegistrationDate"></label>
+                <input asp-for="RegistrationDate" class="form-control" type="datetime-local" name="RegistrationDate"/>
+                <span asp-validation-for="RegistrationDate" class="text-danger" name="RegistrationDate"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+        </form>
+
+
+
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* <form action="Create" method="post">
     <div asp-validation-summary="All" role="alert"></div>
     First Name
     <div class="form-floating" title="First Name">
@@ -42,7 +149,8 @@
     <hr class="border border-primary-subtle" />
     <hr class="border border-primary-subtle" />
 </form>
+
 <script src="/_framework/aspnetcore-browser-refresh.js"></script>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-}
+} *@
