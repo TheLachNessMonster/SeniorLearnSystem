@@ -4,6 +4,7 @@ namespace SeniorLearnSystem.Data;
 
 public class Member
 {
+
     public int Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
@@ -17,7 +18,13 @@ public class Member
     public List<Payment> Payments { get; set; } = new();
 
 
-
+    public Member(string firstname, string lastname, string email, string phone)
+    {
+        FirstName = firstname;
+        LastName = lastname;
+        Email = email;
+        Phone = phone;
+    }
 
     //Functionality
 

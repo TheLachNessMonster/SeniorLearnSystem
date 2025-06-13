@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model SeniorLearnSystem.Areas.Administration.Models.Member.Create;
+
+@{
+    //TODO:b 297. Add Administration Member Create.cshtml
+    ViewData["Title"] = "Member Registration:";
+    //TODO:b 314. Q.Ts sprinkled (Admin Member Create)
+}
+<form action="Create" method="post">
+    <div asp-validation-summary="All" role="alert"></div>
+    First Name
+    <div class="form-floating" title="First Name">
+        <input asp-for="FirstName" class="form-control" aria-required="true" placeholder=""/>
+        <label asp-for="FirstName"></label>
+    </div>
+
+    Last Name
+    <div class="form-floating" title="Last Name">
+        <input asp-for="LastName" class="form-control" aria-required="true" placeholder=""/>
+        <label asp-for="LastName"></label>
+    </div>
+
+    Email Address
+    <div class="form-floating" title="Email Address"">
+        <input asp-for="Email" class="form-control"/>
+        <label asp-for="Email"></label>
+    </div>
+
+    Phone Number
+    <div class="form-floating" title="Phone Number">
+        <input asp-for="Phone" class="form-control"/>
+        <label asp-for="Phone"></label>
+    </div>
+
+
+
+    <div class="form-floating">
+        <button type="submit" class="btn-submit" title="Register Member">Register</button>
+    </div>
+    <hr class="border border-primary-subtle" />
+    <hr class="border border-primary-subtle" />
+</form>
+<script src="/_framework/aspnetcore-browser-refresh.js"></script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
