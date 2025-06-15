@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SeniorLearnSystem.Areas.Administration.Models.Member;
 using SeniorLearnSystem.Data;
 using SeniorLearnSystem.Services;
@@ -19,7 +20,9 @@ public class MemberController : Controller
     // GET: MemberController
     public async Task<ActionResult> Index()
     {
-        return View();
+        //reconfigure this to use a DTO
+        var m = await _membershipService.GetMembersAsync();
+        return View(m);
     }
 
     // GET: MemberController/Details/5
@@ -48,7 +51,8 @@ public class MemberController : Controller
             {
                 //TODO:b 297. Run and verfiy the create action (check the database for a new user)
                 await _membershipService.MemberRegistrationAsync(m.FirstName, m.LastName, m.Email, m.Phone, m.RegistrationDate);
-                return View("Index");
+                //Redirect important to ensure index viewmodel is created
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
@@ -81,6 +85,10 @@ public class MemberController : Controller
     }
 
     // GET: MemberController/Delete/5
+
+
+
+
     public ActionResult Delete(int id)
     {
         return View();

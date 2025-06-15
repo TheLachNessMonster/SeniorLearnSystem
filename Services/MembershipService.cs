@@ -4,6 +4,7 @@ using SeniorLearnSystem.Areas.Administration.Models.Member;
 using Microsoft.AspNetCore.Identity;
 using System.Data;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace SeniorLearnSystem.Services;
 
@@ -34,5 +35,13 @@ public class MembershipService
         //throw new ApplicationException(result.Errors.First().Description);
         return member;
     }
+
+    public async Task<List<Member>> GetMembersAsync()
+    {
+        var members = await _context.Members.ToListAsync();
+        
+        return members;
+    }
+
 
 }
