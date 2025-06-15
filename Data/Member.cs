@@ -62,6 +62,7 @@ public class Member
 
     //Determine the next renewal date a member may have given an alloted extension of months.
     //Check - this can only ever return potentialNewDate, as any addition will make it greater than RenewalDate
+
     public DateTime CalculateNextRenewalDate(int extensionMonths)
     {
         var potentialNewDate = RenewalDate.AddMonths(extensionMonths);

@@ -1,4 +1,6 @@
 ﻿namespace SeniorLearnSystem.Services;
+
+using System.ComponentModel.Design;
 using Mapster;
 using MapsterMapper;
 using SeniorLearnSystem.Data;
@@ -15,7 +17,7 @@ public static class Extensions
         var config = new TypeAdapterConfig();
 
         //Peter uses fully scoped namespace here for self documentation (?)
-        //Consider use of a statecheck method?  Must review before implementation
+        //Consider use of a statecheck method?  Must review before implementation - for managing concurrent requests as scoped services only exist per request
         //Note that methods can be used to provide useful information for readout
         TypeAdapterConfig<Member, MemberDTO>
             .NewConfig()
@@ -35,6 +37,14 @@ public static class Extensions
     }
 
 
+
+    public static IServiceCollection AddAdminServices(this IServiceCollection services)
+    {
+        //Adds MembershipService to DI
+        services.AddScoped<MembershipService>();
+
+        return services;
+    }
 
 
 

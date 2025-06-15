@@ -1,4 +1,4 @@
-﻿@model List<SeniorLearnSystem.Data.Member>
+﻿@model List<SeniorLearnSystem.Models.MemberDTO>
 @{
     ViewData["Title"] = "Index";
 }
@@ -7,12 +7,12 @@
 
 <table>
     <thead>
-        <tr><td>ID</td><td>First Name</td><td>Last Name</td><td>Email</td><td>Phone #</td><td>Active (?)</td></tr>
+        <tr><td>ID</td><td>Name</td><td>Email</td><td>Phone #</td><td>Registration Date</td><td>Membership Start Date</td><td>Renewal Date</td><td>Active (?)</td></tr>
     </thead>
     <tbody>
         @foreach (var m in Model)
         {
-            <tr><td>@m.Id</td><td>@m.FirstName</td><td>@m.LastName</td><td>@m.Email</td><td>@m.Phone</td><td>@m.IsActive.ToString()</td></tr>
+            <tr><td>@m.Id</td><td>@m.FullName</td><td>@m.Email</td><td>@m.Phone</td><td>@m.RegistrationDate.ToShortDateString()</td><td>@m.MembershipStartDate.ToShortDateString()</td><td>@m.RenewalDate.ToShortDateString()</td><td>@m.IsActive.ToString()</td></tr>
         }
     </tbody>
 </table>

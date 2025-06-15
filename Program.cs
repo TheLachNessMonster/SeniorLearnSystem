@@ -13,7 +13,13 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddScoped<MembershipService>();
+
+//Make custom extensions available to DI
+builder.Services.AddMapster();
+
+builder.Services.AddAdminServices();
+//--------------------------------------
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

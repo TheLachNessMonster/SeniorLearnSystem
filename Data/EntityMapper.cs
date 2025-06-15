@@ -9,6 +9,7 @@ public class EntityMapper
     {
 
         //Member Mapping
+        // TODO: Date defaults are not working (?)
         mb.Entity<Member>(m =>
         {
             m.Property(m => m.FirstName).HasMaxLength(50).IsRequired();
