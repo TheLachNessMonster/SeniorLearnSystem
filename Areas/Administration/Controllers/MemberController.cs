@@ -18,6 +18,7 @@ public class MemberController : Controller
     }
 
     // GET: MemberController
+    [HttpGet]
     public async Task<ActionResult> Index()
     {
         //reconfigure this to use a DTO
@@ -26,6 +27,7 @@ public class MemberController : Controller
     }
 
     // GET: MemberController/Details/5
+    [HttpGet]
     public async Task<ActionResult> Details(int id)
     {
         return View();

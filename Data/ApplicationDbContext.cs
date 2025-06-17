@@ -13,7 +13,7 @@ namespace SeniorLearnSystem.Data
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder mb)
+        override protected void OnModelCreating(ModelBuilder mb)
         {
             base.OnModelCreating(mb);
             new EntityMapper(mb);
